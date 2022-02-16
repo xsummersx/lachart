@@ -1,22 +1,16 @@
-
 <template>
-  <div>数字{{ state.cont }}</div>
-  <div>双数{{ state.double }}</div>
-  <button type="button" @click="addBtn">ADD</button>
+  <h1>{{ msg }}</h1>
 </template>
 <script setup lang="ts">
-import { reactive, computed } from "vue";
-interface typeState {
-  cont: number;
-  double: number;
-  arry: Array<number>;
-}
-const state:typeState = reactive({
-  cont: 0,
-  double: computed(() => state.cont * 2),
-  arry: [1, 2, 3, 4],
+import { ref, reactive, defineProps, toRefs } from "vue";
+defineProps({
+  msg: String,
 });
-const addBtn = ():void => {
-  state.cont++;
-};
+const cont = ref(0);
+console.log("数量：" + cont.value);
+const obj = reactive({
+  ct: 0,
+  name: "",
+});
+console.log("objct", obj.ct);
 </script>

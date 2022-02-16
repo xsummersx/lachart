@@ -5,7 +5,7 @@
   <button type="button" @click="addBtn">ADD</button>
 </template>
 <script setup lang="ts">
-import { reactive, computed } from "vue";
+import { reactive, computed, onMounted } from "vue";
 interface typeState {
   cont: number;
   double: number;
@@ -19,4 +19,5 @@ const state:typeState = reactive({
 const addBtn = ():void => {
   state.cont++;
 };
+
 </script>

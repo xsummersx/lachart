@@ -1,14 +1,20 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<!--
+ * @Author: your name
+ * @Date: 2022-02-15 18:53:47
+ * @LastEditTime: 2022-02-16 18:55:37
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \lachart\src\App.vue
+-->
+
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <HelloWorld></HelloWorld>
 </template>
-
+<script setup lang="ts">
+import HelloWorld from "./components/HelloWorld.vue";
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
