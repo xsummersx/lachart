@@ -15,6 +15,7 @@ declare module 'vue' {
     Demo6: typeof import('./src/components/Demo/Demo6.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElementUI: typeof import('./src/components/Demo/ElementUI.vue')['default']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     Father: typeof import('./src/components/Demo/Father.vue')['default']
