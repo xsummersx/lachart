@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 18:51:10
+ * @LastEditTime: 2022-02-17 19:42:53
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -102,3 +102,24 @@ use(pinia)
 ```
 
 3. 开始正常使用
+
+## router 的使用
+
+1. 下载 yarn add vue-router@next
+2. 创建文件 router/index.ts
+3. main.ts 挂载
+
+```
+import router from "./router"
+use(router)
+```
+
+#### 注：createWebHashHistory 的 base 参数是额外增加的，如下：
+
+- 提供可选的 base。默认是 location.pathname + location.search。如果 head 中有一个 <base>，它的值将被忽略，而采用这个参数。但请注意它会影响所有的 history.pushState() 调用，这意味着如果你使用一个 <base> 标签，它的 href 值必须与这个参数相匹配 (请忽略 # 后面的所有内容)
+
+```
+// at https://example.com/folder
+createWebHashHistory() // 给出的网址为 `https://example.com/folder#`
+createWebHashHistory('/folder/') // 给出的网址为 `https://example.com/folder/#`
+```

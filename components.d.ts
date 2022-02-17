@@ -20,6 +20,7 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     Father: typeof import('./src/components/Demo/Father.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Name: typeof import('./src/components/Name.vue')['default']
   }
 }
 

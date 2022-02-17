@@ -1,20 +1,17 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-16 18:55:37
+ * @LastEditTime: 2022-02-17 19:24:08
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\App.vue
 -->
 
-
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld></HelloWorld>
+  <router-view></router-view>
 </template>
-<script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-</script>
+<script setup lang="ts"></script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
