@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 11:36:30
+ * @LastEditTime: 2022-02-17 16:25:59
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -12,8 +12,8 @@
 ## 创建步骤
 
 1. yarn create vite my-vue-app --template vue-ts
-2. npm install 初始化的 vite
-3. npm run dev 开始写代码
+2. yarn install 初始化的 vite
+3. yarn run dev 开始写代码
 
 ## 关于 viteconfigjs 配置，根目录为@
 
@@ -56,3 +56,39 @@ define:{
 3. main.ts 中引入 Vueaxios,axios(已经改为 request 的某个方法)
 4. 编写接口文件，引入 request 请求接口
 5. 在 vue 文件中请求接口
+
+## 关于第三方插件的使用
+
+1. 安装 elementUI yarn add element-plus
+2. 配置 voler 支持
+
+```
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["element-plus/global"]
+  }
+}
+```
+
+2. 按需导入需要安装 npm install -D unplugin-vue-components unplugin-auto-import
+3. 配置 vite.config.ts
+
+```
+plugins: [
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+```
+
+4. 如果部分插件没有样式，需要再 main.ts 中引入 import "element-plus/theme-chalk/index.css";
+
+## vuex 的安装使用
+
+1. 安装 vuex： yarn add vuex@next
