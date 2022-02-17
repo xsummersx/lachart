@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 16:25:59
+ * @LastEditTime: 2022-02-17 18:51:10
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -89,6 +89,16 @@ plugins: [
 
 4. 如果部分插件没有样式，需要再 main.ts 中引入 import "element-plus/theme-chalk/index.css";
 
-## vuex 的安装使用
+## pinia 的安装使用
 
-1. 安装 vuex： yarn add vuex@next
+1. 安装 vuex： yarn add pinia@next
+2. main.ts 引入
+
+```
+import {createPinia} from 'pinia';
+//创建实例
+const pinia = createPinia();
+use(pinia)
+```
+
+3. 开始正常使用
