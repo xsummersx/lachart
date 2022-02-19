@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 19:42:53
+ * @LastEditTime: 2022-02-18 15:14:21
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -32,6 +32,8 @@ define:{
     "process.env":{}
   }
 ```
+
+## 关于分支 vuex-setting 为搭建好的框架
 
 ## 关于 父子之间传值
 

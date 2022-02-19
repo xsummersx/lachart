@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-17 20:26:51
- * @LastEditTime: 2022-02-17 20:58:50
+ * @LastEditTime: 2022-02-18 14:34:50
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\views\Login.vue
@@ -12,7 +12,68 @@
     <div class="forms-container">
       <div class="signin-signup">
         <!-- 登录 -->
-        <h1>登录</h1>
+        <el-form
+          autocomplete="off"
+          ref="formRef"
+          label-width="120px"
+          :model="formData"
+          class="loginForm sign-in-form"
+        >
+          <el-form-item
+            label="邮箱"
+            prop="emailText"
+            :rules="[
+              {
+                required: true,
+                message: '邮箱不能为空',
+                trigger: 'blur',
+              },
+              {
+                type: 'email',
+                message: '请输入正确的邮箱',
+                trigger: ['blur'],
+              },
+            ]"
+          >
+            <el-input
+              autocomplete="off"
+              placeholder="请输入邮箱"
+              v-model="formData.emailText"
+            ></el-input>
+          </el-form-item>
+          <el-form-item
+            label="密码"
+            prop="pwdText"
+            :rules="[
+              {
+                required: true,
+                message: '密码不能为空',
+                trigger: 'blur',
+              },
+              {
+                min: 6,
+                max: 30,
+                message: '请输入密码6~30',
+              },
+            ]"
+          >
+            <el-input
+              autocomplete="off"
+              type="password"
+              placeholder="请输入密码"
+              v-model="formData.pwdText"
+            ></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="submitForm(formRef)" class="submit_btn"
+              >提交</el-button
+            >
+          </el-form-item>
+          <!-- 找回密码 -->
+          <div class="tiparea">
+            <p>忘记密码？<a>立即找回</a></p>
+          </div>
+        </el-form>
         <!-- 注册 -->
         <h1>注册</h1>
       </div>
@@ -26,8 +87,6 @@
         </div>
         <img :src="Log" class="image" alt="" />
       </div>
-    </div>
-    <div class="panels-container">
       <div class="panel right-panel">
         <div class="content">
           <p class="blankBtn">学习变成很好</p>
@@ -41,8 +100,16 @@
 <script setup lang="ts">
 import Log from "@/assets/img/log.svg";
 import Reg from "@/assets/img/register.svg";
+import type { ElForm } from "element-plus";
+import { submitForm } from "@/utils/login";
 import { ref } from "vue";
 const signUpMode = ref(false);
+const formData = ref({
+  emailText: "",
+  pwdText: "",
+});
+type FormInstance = InstanceType<typeof ElForm>;
+const formRef = ref<FormInstance>();
 </script>
 <style scoped>
 .container {
@@ -118,9 +185,7 @@ const signUpMode = ref(false);
   cursor: pointer;
   transition: 0.5s;
 }
-.blankBtn {
-  color: #ff6600;
-}
+
 .btn:hover {
   background-color: #4d84e2;
 }
@@ -199,9 +264,7 @@ const signUpMode = ref(false);
   font-weight: 600;
   font-size: 0.8rem;
 }
-.blankBtn.btn.transparent {
-  border: 2px solid #ff6600;
-}
+
 .right-panel .image,
 .right-panel .content {
   transform: translateX(800px);
@@ -404,4 +467,3 @@ form.sign-up-form {
   width: 100%;
 }
 </style>
->
