@@ -13,7 +13,7 @@
       <div class="signin-signup">
         <LoginBox v-show="!signUpMode">
           <template v-slot:forget>
-            <a class="forget">忘记密码？</a>
+            <a class="forget" @click="dialogVisible = true">忘记密码？</a>
             <a class="regget">没有账号去注册~</a>
           </template>
         </LoginBox>
@@ -26,8 +26,8 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>学习是为了有更多的选择,让生活变的更美好!</h3>
-          <p>何以解忧,唯有米修</p>
+          <h3>百度Echart社区关闭了，凉透了，没办法了</h3>
+          <p>认知诊断相关的统计图</p>
           <button @click="signUpMode = !signUpMode" class="btn transparent">注册</button>
         </div>
         <img src="@/assets/img/log.svg" class="image" />
@@ -35,22 +35,27 @@
 
       <div class="panel right-panel">
         <div class="content">
-          <h3>以人为镜,可明得失, 以代码为镜,可通逻辑!</h3>
-          <p>学习编程,让你的生活更有趣</p>
+          <h3>百度Echart社区关闭了，凉透了，没办法了</h3>
+          <p>认知诊断相关的统计图</p>
           <button @click="signUpMode = !signUpMode" class="btn transparent">登录</button>
         </div>
         <img src="@/assets/img/register.svg" class="image" />
       </div>
     </div>
   </div>
+  <el-dialog v-model="dialogVisible" title="密码重置" width="30%">
+    <Forget />
+  </el-dialog>
 </template>
 <script setup lang="ts">
 // import Log from "@/assets/img/log.svg";
 // import Reg from "@/assets/img/register.svg";
 import LoginBox from "@/components/Login/LoginBox.vue"
 import RegBox from "@/components/Login/RegBox.vue"
+import Forget from "@/components/Login/Forget.vue"
 import { ref } from "vue";
 const signUpMode = ref(false);
+const dialogVisible = ref(false)
 </script>
 <style scoped>
 .container {

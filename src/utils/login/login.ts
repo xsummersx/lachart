@@ -28,3 +28,39 @@ export const submitForm = (formDOM: FormInstance | undefined) => {
     }
   })
 }
+//注册验证
+export const regForm = (regDOM: FormInstance | undefined) => {
+  (regDOM as FormInstance).validate((valid) => {
+    if (valid) {
+      console.log("submit!");
+      ElMessage({
+        message: "提交成功",
+        type: "success"
+      })
+    } else {
+      console.log("error submit!");
+      ElMessage({
+        message: "提交失败",
+        type: "error"
+      });
+    }
+  })
+}
+//重置密码
+export const forget = (forDOM: FormInstance | undefined) => {
+  (forDOM as FormInstance).validate((valid) => {
+    if (valid) {
+      console.log("submit!");
+      ElMessage({
+        message: "提交成功",
+        type: "success"
+      })
+    } else {
+      console.log("error submit!");
+      ElMessage({
+        message: "提交失败",
+        type: "error"
+      });
+    }
+  })
+}

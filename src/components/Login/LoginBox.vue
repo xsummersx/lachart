@@ -8,22 +8,22 @@
         class="loginForm sign-in-form"
     >
         <el-form-item
-            label="邮箱"
+            label="账号"
             prop="emailText"
             :rules="[
                 {
-                    required: true,
-                    message: '邮箱不能为空',
-                    trigger: 'blur',
+                    min: 6,
+                    max: 30,
+                    message: '请输入账号6~30位',
                 },
                 {
-                    type: 'email',
-                    message: '请输入正确的邮箱',
-                    trigger: ['blur'],
+                    required: true,
+                    message: '账号不能为空',
+                    trigger: 'blur',
                 },
             ]"
         >
-            <el-input autocomplete="off" placeholder="请输入邮箱" v-model="formData.emailText"></el-input>
+            <el-input autocomplete="off" placeholder="请输入账号" v-model="formData.emailText"></el-input>
         </el-form-item>
         <el-form-item
             label="密码"
@@ -37,7 +37,7 @@
                 {
                     min: 6,
                     max: 30,
-                    message: '请输入密码6~30',
+                    message: '请输入密码6~30位',
                 },
             ]"
         >
@@ -49,6 +49,7 @@
             ></el-input>
         </el-form-item>
         <el-form-item>
+            <el-button type="success" class="submit_btn">游客登录</el-button>
             <el-button type="primary" @click="submitForm(formRef)" class="submit_btn">登录</el-button>
         </el-form-item>
         <slot name="forget"></slot>

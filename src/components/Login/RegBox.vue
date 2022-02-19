@@ -3,31 +3,31 @@
     <el-form
         autocomplete="off"
         ref="formRef"
-        label-width="60px"
+        label-width="100px"
         :model="formData"
         class="loginForm sign-in-form"
     >
         <el-form-item
-            label="邮箱"
-            prop="emailText"
+            label="账号"
+            prop="adminText"
             :rules="[
                 {
                     required: true,
-                    message: '邮箱不能为空',
+                    message: '账号不能为空',
                     trigger: 'blur',
                 },
                 {
-                    type: 'email',
-                    message: '请输入正确的邮箱',
-                    trigger: ['blur'],
+                    min: 6,
+                    max: 30,
+                    message: '请输入账号6~30位',
                 },
             ]"
         >
-            <el-input autocomplete="off" placeholder="请输入邮箱" v-model="formData.emailText"></el-input>
+            <el-input autocomplete="off" placeholder="请输入账号" v-model="formData.adminText"></el-input>
         </el-form-item>
         <el-form-item
             label="密码"
-            prop="pwdText"
+            prop="pwdText1"
             :rules="[
                 {
                     required: true,
@@ -45,26 +45,57 @@
                 autocomplete="off"
                 type="password"
                 placeholder="请输入密码"
-                v-model="formData.pwdText"
+                v-model="formData.pwdText1"
+            ></el-input>
+        </el-form-item>
+        <el-form-item
+            label="确认密码"
+            prop="pwdText2"
+            :rules="[
+                {
+                    validator: checkPwd,
+                    trigger: 'blur',
+                },
+                {
+                    required: true,
+                    message: '密码不能为空',
+                    trigger: 'blur',
+                },
+            ]"
+        >
+            <el-input
+                autocomplete="off"
+                type="password"
+                placeholder="请再次输入密码"
+                v-model="formData.pwdText2"
             ></el-input>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="submitForm(formRef)" class="submit_btn">登录</el-button>
+            <el-button type="primary" @click="regForm(formRef)" class="submit_btn">注册</el-button>
         </el-form-item>
-        <slot name="forget"></slot>
     </el-form>
 </template>
 <script setup lang="ts">
-import { ref } from "vue"
-import { submitForm } from "@/utils/login/login";
+import { ref, reactive } from "vue"
+import { regForm } from "@/utils/login/login";
 import type { ElForm } from "element-plus";
 type FormInstance = InstanceType<typeof ElForm>;
-const formData = ref({
-    emailText: "",
-    pwdText: "",
+const formData = reactive({
+    adminText: "",
+    pwdText1: "",
+    pwdText2: "",
 });
 
 const formRef = ref<FormInstance>();
+const checkPwd = (rule: any, value: string, callback: any) => {
+    if (value.trim().length == 0) {
+        callback(new Error('密码不能为空'))
+    } else if (value != formData.pwdText1) {
+        callback(new Error("2次密码不一致"))
+    } else {
+        callback()
+    }
+}
 </script>
 <style scoped>
 .sign-in-form {
