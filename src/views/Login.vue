@@ -11,105 +11,46 @@
   <div class="container" :class="{ 'sign-up-mode': signUpMode }">
     <div class="forms-container">
       <div class="signin-signup">
-        <!-- 登录 -->
-        <el-form
-          autocomplete="off"
-          ref="formRef"
-          label-width="120px"
-          :model="formData"
-          class="loginForm sign-in-form"
-        >
-          <el-form-item
-            label="邮箱"
-            prop="emailText"
-            :rules="[
-              {
-                required: true,
-                message: '邮箱不能为空',
-                trigger: 'blur',
-              },
-              {
-                type: 'email',
-                message: '请输入正确的邮箱',
-                trigger: ['blur'],
-              },
-            ]"
-          >
-            <el-input
-              autocomplete="off"
-              placeholder="请输入邮箱"
-              v-model="formData.emailText"
-            ></el-input>
-          </el-form-item>
-          <el-form-item
-            label="密码"
-            prop="pwdText"
-            :rules="[
-              {
-                required: true,
-                message: '密码不能为空',
-                trigger: 'blur',
-              },
-              {
-                min: 6,
-                max: 30,
-                message: '请输入密码6~30',
-              },
-            ]"
-          >
-            <el-input
-              autocomplete="off"
-              type="password"
-              placeholder="请输入密码"
-              v-model="formData.pwdText"
-            ></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm(formRef)" class="submit_btn"
-              >提交</el-button
-            >
-          </el-form-item>
-          <!-- 找回密码 -->
-          <div class="tiparea">
-            <p>忘记密码？<a>立即找回</a></p>
-          </div>
-        </el-form>
+        <LoginBox v-show="!signUpMode">
+          <template v-slot:forget>
+            <a class="forget">忘记密码？</a>
+            <a class="regget">没有账号去注册~</a>
+          </template>
+        </LoginBox>
         <!-- 注册 -->
-        <h1>注册</h1>
+        <RegBox v-show="signUpMode"></RegBox>
+        <!-- 注册 -->
       </div>
     </div>
     <!-- 左右切换动画 -->
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <p>学习为了更好的选择</p>
+          <h3>学习是为了有更多的选择,让生活变的更美好!</h3>
+          <p>何以解忧,唯有米修</p>
           <button @click="signUpMode = !signUpMode" class="btn transparent">注册</button>
         </div>
-        <img :src="Log" class="image" alt="" />
+        <img src="@/assets/img/log.svg" class="image" />
       </div>
+
       <div class="panel right-panel">
         <div class="content">
-          <p class="blankBtn">学习变成很好</p>
-          <button @click="signUpMode = !signUpMode" class="btn blankBtn transparent">登录</button>
+          <h3>以人为镜,可明得失, 以代码为镜,可通逻辑!</h3>
+          <p>学习编程,让你的生活更有趣</p>
+          <button @click="signUpMode = !signUpMode" class="btn transparent">登录</button>
         </div>
-        <img :src="Reg" class="image" alt="" />
+        <img src="@/assets/img/register.svg" class="image" />
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import Log from "@/assets/img/log.svg";
-import Reg from "@/assets/img/register.svg";
-import type { ElForm } from "element-plus";
-import { submitForm } from "@/utils/login";
+// import Log from "@/assets/img/log.svg";
+// import Reg from "@/assets/img/register.svg";
+import LoginBox from "@/components/Login/LoginBox.vue"
+import RegBox from "@/components/Login/RegBox.vue"
 import { ref } from "vue";
 const signUpMode = ref(false);
-const formData = ref({
-  emailText: "",
-  pwdText: "",
-});
-type FormInstance = InstanceType<typeof ElForm>;
-const formRef = ref<FormInstance>();
 </script>
 <style scoped>
 .container {
@@ -133,7 +74,7 @@ const formRef = ref<FormInstance>();
   top: 50%;
   transform: translate(-50%, -50%);
   left: 75%;
-  width: 44%;
+  width: 25%;
   transition: 1s 0.7s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
@@ -292,7 +233,7 @@ const formRef = ref<FormInstance>();
 }
 
 .container.sign-up-mode form.sign-in-form {
-  opacity: 0;
+  opacity: 1;
   z-index: 1;
 }
 
@@ -465,5 +406,21 @@ form.sign-up-form {
 
 .submit_btn {
   width: 100%;
+}
+.forget {
+  font-size: 12px;
+  color: #04befe;
+  cursor: pointer;
+  float: right;
+}
+.regget {
+  font-size: 12px;
+  cursor: pointer;
+  float: right;
+  margin-right: 15px;
+}
+.forget:hover,
+.regget:hover {
+  text-decoration: underline;
 }
 </style>

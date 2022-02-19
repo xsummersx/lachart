@@ -14,16 +14,15 @@ declare module 'vue' {
     Demo5: typeof import('./src/components/Demo/Demo5.vue')['default']
     Demo6: typeof import('./src/components/Demo/Demo6.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElementUI: typeof import('./src/components/Demo/ElementUI.vue')['default']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     Father: typeof import('./src/components/Demo/Father.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    LoginBox: typeof import('./src/components/Login/LoginBox.vue')['default']
     Name: typeof import('./src/components/Name.vue')['default']
+    RegBox: typeof import('./src/components/Login/RegBox.vue')['default']
   }
 }
 
