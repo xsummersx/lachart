@@ -1,0 +1,12 @@
+{
+    "userInfo":[{
+        "userID":"zhangsan",
+        "userPwd":"123456"
+    },{
+        "userID":"lisi",
+        "userPwd":"123456"
+    },{
+        "userID":"wangwu",
+        "userPwd":"123456"
+    }]
+}

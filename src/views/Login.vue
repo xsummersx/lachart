@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-17 20:26:51
- * @LastEditTime: 2022-02-18 14:34:50
+ * @LastEditTime: 2022-02-20 15:40:30
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\views\Login.vue
@@ -14,7 +14,7 @@
         <LoginBox v-show="!signUpMode">
           <template v-slot:forget>
             <a class="forget" @click="dialogVisible = true">忘记密码？</a>
-            <a class="regget">没有账号去注册~</a>
+            <a class="regget" @click="signUpMode = !signUpMode">没有账号去注册~</a>
           </template>
         </LoginBox>
         <!-- 注册 -->
@@ -30,7 +30,7 @@
           <p>认知诊断相关的统计图</p>
           <button @click="signUpMode = !signUpMode" class="btn transparent">注册</button>
         </div>
-        <img src="@/assets/img/log.svg" class="image" />
+        <img :src="Log" class="image" />
       </div>
 
       <div class="panel right-panel">
@@ -39,7 +39,7 @@
           <p>认知诊断相关的统计图</p>
           <button @click="signUpMode = !signUpMode" class="btn transparent">登录</button>
         </div>
-        <img src="@/assets/img/register.svg" class="image" />
+        <img :src="Reg" class="image" />
       </div>
     </div>
   </div>
@@ -48,14 +48,14 @@
   </el-dialog>
 </template>
 <script setup lang="ts">
-// import Log from "@/assets/img/log.svg";
-// import Reg from "@/assets/img/register.svg";
-import LoginBox from "@/components/Login/LoginBox.vue"
-import RegBox from "@/components/Login/RegBox.vue"
-import Forget from "@/components/Login/Forget.vue"
+import Log from "@/assets/img/log.svg";
+import Reg from "@/assets/img/register.svg";
+import LoginBox from "@/components/Login/LoginBox.vue";
+import RegBox from "@/components/Login/RegBox.vue";
+import Forget from "@/components/Login/Forget.vue";
 import { ref } from "vue";
 const signUpMode = ref(false);
-const dialogVisible = ref(false)
+const dialogVisible = ref(false);
 </script>
 <style scoped>
 .container {
