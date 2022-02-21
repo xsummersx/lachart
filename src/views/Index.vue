@@ -1,15 +1,25 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-17 20:08:24
- * @LastEditTime: 2022-02-20 19:12:58
+ * @LastEditTime: 2022-02-21 11:22:26
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\views\index.vue
 -->
 <template>
-  <Head></Head>
+  <div class="MainBox">
+    <Head></Head>
+    <List></List>
+  </div>
 </template>
 <script setup lang="ts">
 import Head from "@/components/Head/Head.vue";
+import List from "@/components/Main/List.vue";
 </script>
-<style scoped></style>
+<style scoped>
+.MainBox {
+  background: #f1f3f7;
+  height: 100%;
+  width: 100%;
+}
+</style>

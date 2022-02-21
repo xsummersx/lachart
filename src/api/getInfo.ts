@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-17 11:06:17
- * @LastEditTime: 2022-02-21 11:05:58
+ * @LastEditTime: 2022-02-21 11:16:28
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\api\getInfo.ts
@@ -20,6 +20,14 @@ export function getInfo(token:string){
 export function Login(){
     return Request.axiosInstantce({
         url:"http://localhost:3001/Login",
+        method:"get",
+        data:{}
+    })
+}
+//获取统计图列表
+export function getList(){
+    return Request.axiosInstantce({
+        url:"http://localhost:3001/getChartsList",
         method:"get",
         data:{}
     })
