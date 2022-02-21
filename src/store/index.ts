@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-17 18:23:09
- * @LastEditTime: 2022-02-20 19:46:10
+ * @LastEditTime: 2022-02-20 20:09:49
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\store\index.ts
@@ -15,6 +15,7 @@ export const useStore = defineStore("main",{
                 MainBlue:"#6BC7DE",
                 MainRed:"#DD7663",
                 MainYellow:"#F0D989",
+                MainOrange:"#ff9900"
             },
             UserInfo:{
                 UserID:''
@@ -46,4 +47,7 @@ instance.$subscribe((_,state)=>{
 const old = localStorage.getItem('UserID');
 if(old){
     instance.$state.UserInfo.UserID = old;
+}
+export const clearToken = ()=>{
+    localStorage.removeItem("UserID")
 }

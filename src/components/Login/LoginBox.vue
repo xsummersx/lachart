@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-20 13:47:55
- * @LastEditTime: 2022-02-20 19:49:29
+ * @LastEditTime: 2022-02-21 11:05:32
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\components\Login\LoginBox.vue
@@ -57,7 +57,7 @@
       ></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="success" @click="router.push('/')" class="submit_btn">游客登录</el-button>
+      <el-button type="success" @click="customLogin" class="submit_btn">游客登录</el-button>
       <el-button type="primary" @click="submit()" class="submit_btn">登录</el-button>
     </el-form-item>
     <slot name="forget"></slot>
@@ -66,7 +66,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { ElForm } from "element-plus";
-import { getInfoList } from "@/api/getInfo";
+import { Login } from "@/api/getInfo";
 import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
 import { useStore } from "@/store/index";
@@ -78,16 +78,26 @@ const formData = ref({
 const formRef = ref<FormInstance>();
 const router = useRouter();
 const store = useStore();
+//初始化判断是否为登录状态
+if (localStorage.getItem("UserID")) {
+  router.push("/");
+}
+//游客登录
+const customLogin = () => {
+  store.setUserInfo("laChart游客");
+  router.push("/");
+};
+//点击登录
 const submit = () => {
   (formRef.value as FormInstance).validate((valid) => {
     if (valid) {
-      getInfoList().then((res) => {
+      Login().then((res) => {
         if (res.status === 200) {
           ElMessage({
             message: "登录成功",
             type: "success",
           });
-          store.setUserInfo(res.data[0].userID);
+          store.setUserInfo(formData.value.emailText);
           router.push("/");
         }
       });

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-20 16:31:04
- * @LastEditTime: 2022-02-20 19:51:08
+ * @LastEditTime: 2022-02-20 20:10:02
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\components\Head\Head.vue
@@ -13,8 +13,10 @@
       <h3>LaCharts</h3>
     </div>
     <div class="lastBox">
-      <span class="Text">欢迎您，{{ UserID }}</span>
-      <div class="ExOut">
+      <span class="Text"
+        >欢迎您，<b class="bCol">{{ UserID }}</b></span
+      >
+      <div class="ExOut" @click="Export">
         <span class="Text"> 退出登录</span>
         <svg
           t="1645355741984"
@@ -38,7 +40,7 @@
 </template>
 <script setup lang="ts">
 import rose from "@/assets/img/rose.png";
-import { useStore } from "@/store/index";
+import { useStore, clearToken } from "@/store/index";
 import { useRouter } from "vue-router";
 const store = useStore();
 const router = useRouter();
@@ -46,11 +48,18 @@ const { PrimaryBlue } = store.$state.ColorObj;
 const { MainBlue } = store.$state.ColorObj;
 const { MainRed } = store.$state.ColorObj;
 const { MainYellow } = store.$state.ColorObj;
+const { MainOrange } = store.$state.ColorObj;
 const { UserID } = store.$state.UserInfo;
 console.log(UserID);
 if (!UserID) {
-  router.push("Login");
+  router.push("/Login");
 }
+//退出登录
+const Export = () => {
+  //清楚缓存
+  clearToken();
+  router.push("/Login");
+};
 </script>
 <style scoped>
 .Title {
@@ -100,5 +109,8 @@ h3 {
   font-size: 14px;
   color: #fff;
   margin-right: 5px;
+}
+.bCol {
+  color: v-bind(MainOrange);
 }
 </style>
