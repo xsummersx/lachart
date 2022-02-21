@@ -21,6 +21,7 @@ declare module 'vue' {
     Father: typeof import('./src/components/Demo/Father.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Name: typeof import('./src/components/Name.vue')['default']
+    RefUsePlan: typeof import('./src/components/Demo/RefUsePlan.vue')['default']
   }
 }
 
