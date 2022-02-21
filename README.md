@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 11:36:30
+ * @LastEditTime: 2022-02-21 20:11:13
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -56,3 +56,9 @@ define:{
 3. main.ts 中引入 Vueaxios,axios(已经改为 request 的某个方法)
 4. 编写接口文件，引入 request 请求接口
 5. 在 vue 文件中请求接口
+
+## 使用官方的 axios 请求方式
+
+1. 安装 npm install axios --save //仅此一个，只使用这个就可以了，不需要 vue-axios
+2. 封装一个 http
+3. main.ts 挂载在全局的 ctx 上
