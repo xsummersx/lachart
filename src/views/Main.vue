@@ -1,20 +1,17 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-21 16:04:36
- * @LastEditTime: 2022-02-21 17:11:58
+ * @LastEditTime: 2022-02-22 19:03:42
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\components\Main\Main.vue
 -->
 <template>
-  <Editor v-model="content" lang="json" width="500" height="500" @init="initEditor"></Editor>
   <div style="width: 400px; height: 400px" id="Main"></div>
 </template>
 <script setup lang="ts">
 import { init } from "echarts";
-import { onMounted, ref } from "vue";
-import Editor from "vue2-ace-editor";
-let content = ref("");
+import { onMounted } from "vue";
 onMounted(() => {
   let myChart = init(document.getElementById("Main") as HTMLFormElement);
   let option = {
@@ -39,8 +36,4 @@ onMounted(() => {
   };
   myChart.setOption(option);
 });
-const initEditor = () => {
-  require("brace/mode/json");
-  require("brace/theme/chrome");
-};
 </script>

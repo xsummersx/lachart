@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-21 20:00:26
+ * @LastEditTime: 2022-02-22 19:25:47
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\vite.config.ts
@@ -11,6 +11,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin'); 
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,7 +23,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
-    })],
+    }),new MonacoWebpackPlugin()],
   define:{
     "process.env":{}
   },
