@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-21 20:08:31
- * @LastEditTime: 2022-02-22 08:40:42
+ * @LastEditTime: 2022-02-22 09:17:04
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\axios\http.ts
@@ -18,6 +18,7 @@ axios.defaults.baseURL = bUrl+'api/',
 //请求拦截
 axios.interceptors.request.use((config:AxiosRequestConfig)=>{
     //请求拦截器
+    console.log("拦截")
     return config
 })
 axios.interceptors.response.use((response:AxiosResponse)=>{
