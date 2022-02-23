@@ -18,7 +18,8 @@
     "pinia": "^2.0.0-rc.10",
     "vue": "^3.2.25",
     "vue-axios": "^3.4.1",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue2-ace-editor": "0.0.15"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
