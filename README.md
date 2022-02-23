@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-15 18:53:47
- * @LastEditTime: 2022-02-17 19:42:53
+ * @LastEditTime: 2022-02-23 18:53:55
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\README.md
@@ -18,11 +18,11 @@
 ## 关于 viteconfigjs 配置，根目录为@
 
 ```
-    resolve: {
-      alias: [//配置别名
-        { find: '@', replacement: resolve(__dirname, 'src') }
-      ],
+  resolve:{
+    alias:{
+      "@":"/src/"
     }
+  }
 ```
 
 ## 遇到 process is not defined 在 viteconfig 下配置
