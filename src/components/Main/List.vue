@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-21 11:17:10
- * @LastEditTime: 2022-02-22 18:57:55
+ * @LastEditTime: 2022-02-28 13:51:46
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \lachart\src\components\Main\List.vue
@@ -45,7 +45,7 @@ interface ChartType {
   img: String; //统计图效果图片
 }
 let initData = reactive({ chartList: Array<ChartType>() });
-
+//mount
 onMounted(() => {
   getList().then((res) => {
     if (res.status == 200) {
